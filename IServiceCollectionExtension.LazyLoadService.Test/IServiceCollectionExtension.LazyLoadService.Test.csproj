@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\DependencyInjection.ServiceCollectionExtension.LazyLoadService\DependencyInjection.ServiceCollectionExtension.LazyLoadService.csproj" />
+      <ProjectReference Include="..\IServiceCollectionExtension.LazyLoadService\IServiceCollectionExtension.LazyLoadService.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.ServiceCollectionExtension.LazyLoadService", "DependencyInjection.ServiceCollectionExtension.LazyLoadService\DependencyInjection.ServiceCollectionExtension.LazyLoadService.csproj", "{E429F414-5D2D-44D2-B9F4-3FF0EC6C458C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IServiceCollectionExtension.LazyLoadService", "IServiceCollectionExtension.LazyLoadService\IServiceCollectionExtension.LazyLoadService.csproj", "{E429F414-5D2D-44D2-B9F4-3FF0EC6C458C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test", "DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test\DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test.csproj", "{A23C755D-AF97-4934-BF1D-E7972F786374}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IServiceCollectionExtension.LazyLoadService.Test", "IServiceCollectionExtension.LazyLoadService.Test\IServiceCollectionExtension.LazyLoadService.Test.csproj", "{A23C755D-AF97-4934-BF1D-E7972F786374}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
