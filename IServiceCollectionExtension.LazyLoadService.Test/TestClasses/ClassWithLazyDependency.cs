@@ -1,6 +1,6 @@
 using System;
 
-namespace DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test.TestClasses
+namespace IServiceCollectionExtension.LazyLoadService.Test.TestClasses
 {
     internal class ClassWithLazyDependency
     {

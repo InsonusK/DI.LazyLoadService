@@ -1,11 +1,11 @@
 using System;
-using DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test.TestClasses;
+using IServiceCollectionExtension.LazyLoadService.Test.TestClasses;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 
-namespace DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test
+namespace IServiceCollectionExtension.LazyLoadService.Test
 {
-    public class Transient_Test
+    public class Scope_Test
     {
         private IServiceProvider _sp;
         private IServiceCollection _sc;

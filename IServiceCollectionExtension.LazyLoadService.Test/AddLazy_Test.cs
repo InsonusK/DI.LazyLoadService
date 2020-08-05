@@ -1,38 +1,24 @@
 using System;
-using DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test.TestClasses;
+using IServiceCollectionExtension.LazyLoadService.Test.TestClasses;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 
-namespace DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test
+namespace IServiceCollectionExtension.LazyLoadService.Test
 {
-    public class Singleton_Test
+    public class AddLazy_Test
     {
-        private IServiceProvider _sp;
-        private IServiceCollection _sc;
-
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
-        {
-            _sc = new ServiceCollection();
-            _sc.AddTransient<ClassWithLazyDependency>();
-            _sc.AddSingleton<StepChecker>();
-            _sc.AddLazyScoped<ISomeClass, SomeClass>();
-        }
-
-        [SetUp]
-        public void SetUp()
-        {
-            _sp = _sc.BuildServiceProvider();
-        }
         [Test]
-        public void BuildLazyUserDoesNotInitLazyLoadService()
+        [TestCase(ServiceLifetime.Singleton)]
+        [TestCase(ServiceLifetime.Scoped)]
+        [TestCase(ServiceLifetime.Transient)]
+        public void BuildLazyUserDoesNotInitLazyLoadService(ServiceLifetime lifetime)
         {
             // Arrange
             var _sc = new ServiceCollection();
             _sc.AddTransient<ClassWithLazyDependency>();
             _sc.AddSingleton<StepChecker>();
-            _sc.AddLazySingleton<ISomeClass, SomeClass>();
-            _sp = _sc.BuildServiceProvider();
+            _sc.AddLazy<ISomeClass, SomeClass>(lifetime);
+            var _sp = _sc.BuildServiceProvider();
 
             // Act
             var _classWithLazyDependency = _sp.GetRequiredService<ClassWithLazyDependency>();
@@ -45,9 +31,17 @@ namespace DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test
         }
 
         [Test]
-        public void CallLazyLoadService()
+        [TestCase(ServiceLifetime.Singleton)]
+        [TestCase(ServiceLifetime.Scoped)]
+        [TestCase(ServiceLifetime.Transient)]
+        public void CallLazyLoadService(ServiceLifetime lifetime)
         {
             // Arrange
+            var _sc = new ServiceCollection();
+            _sc.AddTransient<ClassWithLazyDependency>();
+            _sc.AddSingleton<StepChecker>();
+            _sc.AddLazy<ISomeClass, SomeClass>(lifetime);
+            var _sp = _sc.BuildServiceProvider();
 
             // Act
             var _classWithLazyDependency = _sp.GetRequiredService<ClassWithLazyDependency>();

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DependencyInjection.ServiceCollectionExtension.LazyLoadService
+namespace IServiceCollectionExtension.LazyLoadService
 {
     public static class ServiceCollectionExtensions
     {

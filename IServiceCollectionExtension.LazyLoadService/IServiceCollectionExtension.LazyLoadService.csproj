@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <PackageVersion>1.0.0</PackageVersion>
+        <PackageId>InsonusK.IServiceCollectionExtension.LazyLoadService</PackageId>
+        <Title>IServiceCollectionExtension.LazyLoadService</Title>
+        <Authors>InsonusK</Authors>
+        <Description>Add short command to add service to IServiceCollection wrapped into Lazy&lt;&gt; class</Description>
+        <PackageProjectUrl>https://www.nuget.org/packages/InsonusK.IServiceCollectionExtension.LazyLoadService/</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/InsonusK/DI.LazyLoadService/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/InsonusK/IServiceCollectionExtension.LazyLoadService</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.6" />
+    </ItemGroup>
+
+</Project>

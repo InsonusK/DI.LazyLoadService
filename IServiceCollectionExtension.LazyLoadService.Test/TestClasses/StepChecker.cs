@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test.TestClasses
+namespace IServiceCollectionExtension.LazyLoadService.Test.TestClasses
 {
     internal class StepChecker
     {

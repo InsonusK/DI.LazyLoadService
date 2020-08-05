@@ -1,4 +1,4 @@
-namespace DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test.TestClasses
+namespace IServiceCollectionExtension.LazyLoadService.Test.TestClasses
 {
     class SomeClass : ISomeClass
     {
