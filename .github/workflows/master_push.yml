@@ -57,7 +57,7 @@ jobs:
         with:
           dotnet-version: 3.1.101
       - name: add github repo
-        run: dotnet nuget add source https://nuget.pkg.github.com/InsonusK/index.json -n github -u InsonusK -p ${{ secrets.GH_DEPLOY_KEY }}
+        run: dotnet nuget add source https://nuget.pkg.github.com/InsonusK/index.json -n github -u InsonusK -p ${{ secrets.GH_DEPLOY_KEY }} --store-password-in-clear-text
       - name: Build with dotnet
         run: dotnet build --configuration Release
       - name: Pack with dotnet
