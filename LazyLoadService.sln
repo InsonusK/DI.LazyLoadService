@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.ServiceCollectionExtension.LazyLoadService", "DependencyInjection.ServiceCollectionExtension.LazyLoadService\DependencyInjection.ServiceCollectionExtension.LazyLoadService.csproj", "{E429F414-5D2D-44D2-B9F4-3FF0EC6C458C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test", "DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test\DependencyInjection.ServiceCollectionExtension.LazyLoadService.Test.csproj", "{A23C755D-AF97-4934-BF1D-E7972F786374}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E429F414-5D2D-44D2-B9F4-3FF0EC6C458C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E429F414-5D2D-44D2-B9F4-3FF0EC6C458C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E429F414-5D2D-44D2-B9F4-3FF0EC6C458C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E429F414-5D2D-44D2-B9F4-3FF0EC6C458C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A23C755D-AF97-4934-BF1D-E7972F786374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23C755D-AF97-4934-BF1D-E7972F786374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23C755D-AF97-4934-BF1D-E7972F786374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23C755D-AF97-4934-BF1D-E7972F786374}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
