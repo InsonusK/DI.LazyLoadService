@@ -94,3 +94,4 @@ typings/
 # DotNetCore
 obj/
 bin/
+*.nupkg
