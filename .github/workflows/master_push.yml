@@ -40,7 +40,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Pack with dotnet
-        run: dotnet pack Project/Project.csproj --output nuget-packages --configuration Release
+        run: dotnet pack IServiceCollectionExtension.LazyLoadService/IServiceCollectionExtension.LazyLoadService.csproj --output nuget-packages --configuration Release
       - name: Upload nupkg
         uses: actions/upload-artifact@v2
         with:
