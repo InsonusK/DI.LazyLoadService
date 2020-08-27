@@ -1,0 +1,28 @@
+name: Check labels of PR to release
+
+on:
+  pull_request:
+    branches: [release]
+    types: [opened, synchronize, reopened, labeled]
+
+env:
+  code_path: 'src/**'
+
+jobs:
+  label:
+    name: "Check labels"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dorny/paths-filter@v2.2.0
+        id: filter
+        with:
+          filters: |
+            code:
+              - ${{ env.code_path }}
+      - name: Check code label setted for code changes
+        if: steps.filter.outputs.code == 'true'
+        uses: mheap/github-action-required-labels@v1
+        with:
+          mode: exactly
+          count: 1
+          labels: "patch, minor, major"

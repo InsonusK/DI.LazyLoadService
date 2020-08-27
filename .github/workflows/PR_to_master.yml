@@ -1,0 +1,76 @@
+name: PR code to master
+
+on:
+  pull_request:
+    branches: master
+    types: [opened, synchronize, reopened, labeled]
+
+env:
+  code_path: 'src/**'
+  release_branch: 'release'
+  devops_path: '.github/**'
+  devops_branch: 'devops'
+  project_path: 'src/IServiceCollectionExtension.LazyLoadService/IServiceCollectionExtension.LazyLoadService.csproj'
+
+jobs:
+  Check_source_branch:
+    name: "Check head branch to master branch"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dorny/paths-filter@v2.2.0
+        id: filter
+        with:
+          filters: |
+            code:
+              - ${{ env.code_path }}
+            devops:
+              - ${{ env.devops_path }}
+      - if: steps.filter.outputs.code == 'true' && github.event.pull_request.head.ref != env.release_branch
+        name: "Throw error if PR contain code changes but not from release branch"
+        run: |
+          echo "Pull requests with code changes should come from ${{ env.release_branch }} branch"
+          exit 4
+      - if: steps.filter.outputs.devops == 'true' && github.event.pull_request.head.ref != env.devops_branch
+        name: "Throw error if PR contain devops changes but not from devops branch"
+        run: |
+          echo "Pull requests with devops changes should come from ${{ env.devops_branch }} branch"
+          exit 4
+      - if: ${{ !success() }}
+        name: "Check passed"
+        run: echo "Check passed"
+  Check_version:
+    name: "If PR to master contain code changes: check version "
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dorny/paths-filter@v2.2.0
+        id: filter
+        with:
+          filters: |
+            code:
+              - ${{ env.code_path }}
+      - if: steps.filter.outputs.code == 'false'
+        name: "Log that there is no code changes"
+        run: |
+          echo "Changes does not contain code"
+          exit 0
+      - uses: actions/checkout@v2
+      - if: steps.filter.outputs.code == 'true'
+        name: "Get last release tag"
+        id: last_release
+        uses: InsonusK/get-latest-release@v1.0.1
+        with:
+          myToken: ${{ github.token }}
+          exclude_types: "prerelease|release"
+          view_top: 10
+      - if: steps.filter.outputs.code == 'true'
+        name: "Get current version of package"
+        run: |
+          file=`cat ${{ env.project_path }}`
+          version=$(grep -oPm1 "(?<=<PackageVersion>)[^<]+" <<< $file)
+          version=v${version}
+          echo $version
+          echo '::set-env name=VERSION::'${version}
+      - if: steps.filter.outputs.code == 'true' && env.VERSION != steps.last_release.outputs.tag_name
+        run: |
+          echo "Drawft release (${{ steps.last_release.outputs.tag_name }}) version doesn't equal project version (${{ env.VERSION }})"
+          exit 4
